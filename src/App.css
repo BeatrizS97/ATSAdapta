@@ -1,0 +1,9 @@
+@import "./styles/variaveis.css";
+@import "./styles/base.css";
+@import "./styles/layout.css";
+@import "./styles/hero.css";
+@import "./styles/formulario.css";
+@import "./styles/resultado.css";
+@import "./styles/compatibilidade.css";
+@import "./styles/perguntas.css";
+@import "./styles/feedback.css";
