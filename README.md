@@ -60,11 +60,6 @@ uma vaga e usa IA generativa para:
 
 ## 🖼️ Capturas de tela
 
-> As imagens abaixo ficam em `docs/screenshots/`. Substitua os arquivos
-> pelos seus próprios prints — veja como capturar em
-> ["Como atualizar as capturas de tela"](#como-atualizar-as-capturas-de-tela)
-> logo depois desta seção.
-
 **Fluxo completo (upload → perguntas → resultado → download):**
 
 ![Demonstração do fluxo completo](./docs/screenshots/demo.gif)
