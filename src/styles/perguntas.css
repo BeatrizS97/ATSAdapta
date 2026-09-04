@@ -1,0 +1,38 @@
+.perguntas-complementares h2 {
+  font-family: var(--fonte-display);
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 8px;
+  color: var(--tinta);
+}
+
+.perguntas-complementares-intro {
+  font-size: 13.5px;
+  color: var(--tinta-suave);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.perguntas-complementares form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.perguntas-complementares-acoes {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.perguntas-complementares-acoes button[type="button"] {
+  background: var(--papel-elevado);
+  color: var(--musgo-escuro);
+  border: 1px solid var(--linha-forte);
+}
+
+.perguntas-complementares-acoes button[type="button"]:hover:not(:disabled) {
+  background: var(--musgo-neblina);
+  border-color: var(--musgo);
+}

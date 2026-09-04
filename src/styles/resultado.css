@@ -1,0 +1,233 @@
+.resultado {
+  background: var(--papel-elevado);
+  border: 1px solid var(--linha);
+  border-radius: var(--raio-md);
+  padding: 28px;
+  box-shadow: var(--sombra-cartao);
+}
+
+.resultado h2,
+.compatibilidade h2 {
+  font-family: var(--fonte-display);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--tinta);
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.preview-curriculo {
+  background: var(--papel);
+  padding: 24px;
+  border-radius: var(--raio-sm);
+}
+
+.preview-nome {
+  font-family: var(--fonte-display);
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+  color: var(--tinta);
+}
+
+.preview-contato {
+  font-size: 13px;
+  font-family: var(--fonte-dados);
+  color: var(--tinta-suave);
+  margin: 6px 0 0;
+}
+
+.preview-secao {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--linha);
+}
+
+.preview-titulo-secao {
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--musgo-escuro);
+  margin: 0 0 10px;
+  letter-spacing: 0.06em;
+}
+
+.preview-secao p,
+.preview-secao li {
+  line-height: 1.6;
+}
+
+.preview-experiencia {
+  margin-bottom: 16px;
+}
+
+.preview-experiencia:last-child {
+  margin-bottom: 0;
+}
+
+.preview-cargo {
+  font-weight: 600;
+  margin: 0;
+  font-size: 14.5px;
+}
+
+.preview-periodo {
+  font-size: 12px;
+  font-family: var(--fonte-dados);
+  color: var(--tinta-suave);
+  margin: 3px 0 8px;
+}
+
+.preview-secao ul {
+  margin: 8px 0 0;
+  padding-left: 20px;
+}
+
+.preview-secao li {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+/* Linha de tecnologias/ferramentas exibida logo abaixo dos bullets de cada
+   experiência profissional, para reforçar palavras-chave (ATS) sem poluir
+   os bullets no método STAR. */
+.preview-stack {
+  font-size: 13px;
+  font-style: italic;
+  color: var(--tinta-suave);
+  margin: 8px 0 0;
+}
+
+.preview-stack strong {
+  font-weight: 600;
+  font-style: italic;
+  color: var(--tinta);
+}
+
+.acoes-resultado {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 22px;
+}
+
+.acoes-resultado button {
+  background: var(--papel-elevado);
+  color: var(--musgo-escuro);
+  border: 1px solid var(--linha-forte);
+  font-size: 13.5px;
+  padding: 10px 16px;
+}
+
+.acoes-resultado button:hover:not(:disabled) {
+  background: var(--musgo-neblina);
+  border-color: var(--musgo);
+}
+
+.acoes-resultado button:disabled {
+  color: var(--tinta-suave);
+  border-color: var(--linha);
+  background: var(--papel-elevado);
+}
+
+@media (max-width: 520px) {
+  .acoes-resultado {
+    flex-direction: column;
+  }
+
+  .acoes-resultado button {
+    width: 100%;
+  }
+}
+
+.preview-subtitulo {
+  margin: 2px 0 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--musgo);
+}
+
+.preview-projeto {
+  margin-bottom: 14px;
+}
+
+.preview-projeto:last-child {
+  margin-bottom: 0;
+}
+
+.preview-projeto-link {
+  display: inline-block;
+  margin-top: 4px;
+  font-family: var(--fonte-dados);
+  font-size: 12.5px;
+  color: var(--musgo);
+  word-break: break-all;
+}
+
+.preview-projeto-link:hover {
+  text-decoration: underline;
+}
+
+/* Cada formação em uma única linha: nome do curso em negrito seguido de
+   " — instituição | período" no mesmo parágrafo (ver ResultadoCurriculo.jsx). */
+.preview-formacao-linha {
+  font-size: 14.5px;
+  margin: 0 0 8px;
+  line-height: 1.5;
+}
+
+.preview-formacao-linha:last-child {
+  margin-bottom: 0;
+}
+
+.preview-formacao-linha strong {
+  font-weight: 600;
+}
+
+.campos-opcionais {
+  background: var(--papel);
+  border: 1px solid var(--linha);
+  border-radius: var(--raio-sm);
+  padding: 14px 16px;
+  margin-bottom: 22px;
+}
+
+.campos-opcionais-titulo {
+  margin: 0 0 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--tinta);
+}
+
+.campos-opcionais-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+}
+
+.campo-opcional-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13.5px;
+  color: var(--tinta);
+  cursor: pointer;
+}
+
+/* Correção: sem estas regras, o navegador podia renderizar a primeira
+   checkbox da lista (ex.: "Gerar currículo em inglês") maior que as
+   demais, pois o checkbox nativo herda tamanho de caixa/margem padrão do
+   user-agent quando width/height não são reforçados com box-sizing e
+   flex-shrink. Fixando box-sizing, margin e flex-shrink, todas as
+   checkboxes de ".campo-opcional-item" ficam sempre no mesmo tamanho. */
+.campo-opcional-item input[type="checkbox"] {
+  box-sizing: border-box;
+  width: 12px;
+  height: 12px;
+  min-width: 12px;
+  min-height: 12px;
+  margin: 0;
+  flex-shrink: 0;
+  accent-color: var(--musgo);
+  cursor: pointer;
+}

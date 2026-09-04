@@ -1,0 +1,51 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--fonte-corpo);
+  background: var(--papel);
+  color: var(--tinta);
+  -webkit-font-smoothing: antialiased;
+}
+
+a,
+button,
+input,
+textarea {
+  font-family: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--musgo);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+button {
+  background: var(--musgo);
+  color: #fff;
+  border: none;
+  padding: 13px 20px;
+  border-radius: var(--raio-sm);
+  font-size: 14.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.1s ease;
+  min-height: 44px;
+}
+
+button:hover:not(:disabled) {
+  background: var(--musgo-escuro);
+}
+
+button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+button:disabled {
+  background: var(--linha-forte);
+  color: var(--tinta-suave);
+  cursor: not-allowed;
+}

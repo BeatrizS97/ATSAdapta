@@ -1,0 +1,34 @@
+:root {
+  --papel: #f3efe7;
+  --papel-elevado: #fffdf9;
+  --papel-fundo: #ece5d6;
+
+  --tinta: #201d18;
+  --tinta-suave: #6b6459;
+  --linha: #dcd3c0;
+  --linha-forte: #c7bca4;
+
+  --musgo: #2e4a3b;
+  --musgo-escuro: #1c2f26;
+  --musgo-neblina: #e3e9e2;
+
+  --terracota: #ad4e2d;
+  --terracota-suave: #f2ddce;
+
+  --sucesso-bg: #e2ebdd;
+  --sucesso-texto: #33502e;
+  --aviso-bg: #f6e8ca;
+  --aviso-texto: #8a5a17;
+  --erro-bg: #f5dad2;
+  --erro-texto: #9a3b22;
+
+  --raio-sm: 6px;
+  --raio-md: 10px;
+
+  --sombra-cartao: 0 1px 1px rgba(32, 29, 24, 0.04), 0 10px 24px -14px rgba(32, 29, 24, 0.35);
+  --sombra-flutuante: 0 4px 16px -6px rgba(32, 29, 24, 0.28);
+
+  --fonte-display: "Fraunces", Georgia, serif;
+  --fonte-corpo: "Inter", system-ui, sans-serif;
+  --fonte-dados: "IBM Plex Mono", monospace;
+}

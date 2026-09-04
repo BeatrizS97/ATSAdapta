@@ -1,0 +1,137 @@
+.formulario {
+  position: relative;
+  background: var(--papel-elevado);
+  border: 1px solid var(--linha);
+  border-radius: var(--raio-md);
+  padding: 26px;
+  box-shadow: var(--sombra-cartao);
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.campo label {
+  font-weight: 600;
+  font-size: 13.5px;
+  color: var(--tinta);
+}
+
+.campo textarea {
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.5;
+  padding: 11px 13px;
+  border: 1px solid var(--linha-forte);
+  border-radius: var(--raio-sm);
+  resize: vertical;
+  background: var(--papel);
+  color: var(--tinta);
+  transition: border-color 0.15s ease;
+}
+
+.campo textarea:focus {
+  border-color: var(--musgo);
+}
+
+.campo-arquivo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+  border: 1px dashed var(--linha-forte);
+  border-radius: var(--raio-sm);
+  background: var(--papel);
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.campo-arquivo:focus-within {
+  border-color: var(--musgo);
+}
+
+.campo-arquivo input[type="file"] {
+  font-size: 13px;
+  color: transparent;
+}
+
+.campo-arquivo input[type="file"]::file-selector-button {
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  background: var(--musgo);
+  border: none;
+  border-radius: var(--raio-sm);
+  padding: 8px 14px;
+  margin-right: 12px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.campo-arquivo input[type="file"]::file-selector-button:hover {
+  background: var(--musgo-escuro);
+}
+
+.campo-arquivo-selecionado {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.campo-arquivo-nome {
+  font-size: 13px;
+  font-weight: 600;
+  font-family: var(--fonte-dados);
+  color: var(--musgo-escuro);
+}
+
+.campo-arquivo-remover {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: auto;
+  padding: 4px;
+  background: transparent;
+  color: var(--tinta-suave);
+  border: none;
+  border-radius: var(--raio-sm);
+  opacity: 0;
+  transition: opacity 0.15s ease, color 0.15s ease, background 0.15s ease;
+}
+
+.campo-arquivo-selecionado:hover .campo-arquivo-remover,
+.campo-arquivo-remover:focus-visible {
+  opacity: 1;
+}
+
+.campo-arquivo-remover:hover {
+  color: var(--erro-texto);
+  background: var(--erro-bg);
+}
+
+.campo-ajuda {
+  font-size: 12px;
+  color: var(--tinta-suave);
+}
+
+.contador-caracteres {
+  align-self: flex-end;
+  font-family: var(--fonte-dados);
+  font-size: 12px;
+  color: var(--tinta-suave);
+}
+
+.contador-caracteres-aviso {
+  color: var(--aviso-texto);
+  font-weight: 500;
+}
+
+.contador-caracteres-limite {
+  color: var(--erro-texto);
+  font-weight: 700;
+}
