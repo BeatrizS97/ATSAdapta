@@ -1,0 +1,3 @@
+   *.json linguist-detectable=true
+   *.md linguist-detectable=true
+   package-lock.json linguist-generated=true
