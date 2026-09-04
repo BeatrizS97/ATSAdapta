@@ -64,3 +64,61 @@ export function criarCurriculoCompleto(idioma = "pt") {
     idioma,
   };
 }
+
+// Currículo com apenas parte das seções opcionais preenchidas (tem
+// experiência e formação, mas não tem projetos, cursos, idiomas nem
+// atividades complementares). Garante que cada seção opcional é renderizada
+// de forma independente, sem depender de as outras estarem presentes.
+export const curriculoComCamposParciais = {
+  nome: "Ana Lima",
+  cargoAlvo: "Analista de Suporte",
+  contato: "Curitiba, PR | ana.lima@email.com",
+  resumoProfissional: "Profissional de suporte técnico com foco em atendimento ao cliente.",
+  experiencias: [
+    {
+      cargo: "Analista de Suporte N1",
+      empresa: "Empresa Gama",
+      periodo: "Mar/2023 - Atual",
+      bullets: ["Resolvi chamados técnicos de usuários internos, priorizando os casos críticos."],
+      stack: [],
+    },
+  ],
+  projetos: [],
+  formacao: [{ curso: "Técnico em Informática", instituicao: "SENAI", periodo: "2022" }],
+  cursosCertificados: [],
+  idiomas: [],
+  atividadesComplementares: [],
+  habilidades: ["Atendimento ao cliente", "Suporte técnico"],
+  idioma: "pt",
+};
+
+// Três variações do campo "contato", usadas para garantir que o cabeçalho
+// (PDF/DOCX) lida bem com combinações diferentes de e-mail e link, incluindo
+// contato com um único segmento e contato sem nenhum link/e-mail.
+export const curriculosComContatoVariado = [
+  { ...curriculoComCamposParciais, contato: "candidato@email.com" },
+  { ...curriculoComCamposParciais, contato: "www.portfolio-candidato.dev" },
+  { ...curriculoComCamposParciais, contato: "São Paulo, SP | (11) 98888-7777" },
+];
+
+// Currículo com muitas experiências e bullets longos, usado para forçar o
+// PDFKit (gerarPdf) a testar várias escalas antes de decidir o resultado, e
+// para garantir que o DOCX também gera um arquivo válido com bastante
+// conteúdo.
+export function criarCurriculoGrande() {
+  const base = criarCurriculoCompleto("pt");
+
+  return {
+    ...base,
+    experiencias: Array.from({ length: 6 }, (_, indice) => ({
+      cargo: `Cargo ${indice + 1}`,
+      empresa: `Empresa ${indice + 1}`,
+      periodo: "Jan/2024 - Atual",
+      bullets: [
+        "Liderei um projeto multidisciplinar de grande porte, coordenando times de produto, design e engenharia para entregar melhorias mensuráveis de performance e experiência do usuário.",
+        "Implementei um pipeline de integração contínua que reduziu o tempo de deploy em uma proporção significativa, aumentando a confiabilidade das entregas.",
+      ],
+      stack: ["React", "Node.js", "PostgreSQL"],
+    })),
+  };
+}
