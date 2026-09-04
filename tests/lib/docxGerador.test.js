@@ -1,5 +1,11 @@
 import { gerarDocx } from "../../lib/geradores/docxGerador.js";
-import { curriculoMinimo, criarCurriculoCompleto } from "../fixtures/curriculo.js";
+import {
+  curriculoMinimo,
+  criarCurriculoCompleto,
+  criarCurriculoGrande,
+  curriculoComCamposParciais,
+  curriculosComContatoVariado,
+} from "../fixtures/curriculo.js";
 
 describe("gerarDocx", () => {
   test("gera um Buffer não vazio para um currículo mínimo", async () => {
@@ -37,4 +43,28 @@ describe("gerarDocx", () => {
 
     expect(bufferCompleto.length).toBeGreaterThan(bufferMinimo.length);
   });
+
+  test("gera um .docx para um currículo com muitas experiências e bullets longos, sem lançar exceção", async () => {
+    const buffer = await gerarDocx(criarCurriculoGrande());
+
+    expect(Buffer.isBuffer(buffer)).toBe(true);
+    expect(buffer.slice(0, 2).toString("latin1")).toBe("PK");
+  });
+
+  test("gera um .docx para um currículo com apenas parte das seções opcionais preenchidas", async () => {
+    const buffer = await gerarDocx(curriculoComCamposParciais);
+
+    expect(Buffer.isBuffer(buffer)).toBe(true);
+    expect(buffer.slice(0, 2).toString("latin1")).toBe("PK");
+  });
+
+  test.each(curriculosComContatoVariado)(
+    "gera um .docx válido para a variação de contato %#",
+    async (curriculo) => {
+      const buffer = await gerarDocx(curriculo);
+
+      expect(Buffer.isBuffer(buffer)).toBe(true);
+      expect(buffer.slice(0, 2).toString("latin1")).toBe("PK");
+    }
+  );
 });
