@@ -25,6 +25,7 @@ baixar em `.txt`, **PDF** ou **Word**.
 ## 📚 Sumário
 
 - [O que o projeto faz](#-o-que-o-projeto-faz)
+- [Por que esse projeto existe](#-por-que-esse-projeto-existe)
 - [Capturas de tela](#-capturas-de-tela)
 - [Como funciona (fluxo)](#-como-funciona-fluxo)
 - [Stack](#-stack)
@@ -54,9 +55,29 @@ uma vaga e usa IA generativa para:
   antes de gerar o currículo final, para que os resultados sejam reais —
   nunca inventados pela IA.
 - 🌍 **Traduzir para inglês**, no padrão de currículo internacional, quando
-  solicitado.
+  solicitado — com datas no formato MM/AAAA e verbos de ação no passado
+  simples, prontos para vagas remotas ou fora do Brasil.
+- ☑️ **Escolher o que entra no currículo final**, com checkboxes para incluir
+  ou remover idiomas, cursos/certificados, atividades complementares e
+  projetos antes do download — sem precisar editar o arquivo depois de
+  gerado.
 - ⬇️ **Exportar o resultado** em `.txt`, **PDF** ou **Word (.docx)**, prontos
   para envio.
+
+## 🎯 Por que esse projeto existe
+
+A ideia surgiu de um problema bem concreto. Uma vaga real de **Desenvolvedor(a)
+React Júnior Remoto** (JavaScript, React, HTML, CSS e Git) pedia justamente o
+tipo de adaptação manual que consome tempo: reescrever cada bullet no formato
+certo, garantir que as palavras-chave da vaga apareçam e, por ser remota,
+frequentemente exigir o currículo em inglês, no padrão internacional.
+
+O ATSAdapta nasceu pra resolver esses pontos de uma vez: reescreve no método
+STAR, incorpora as palavras-chave da vaga automaticamente, gera o currículo
+já no formato internacional (datas MM/AAAA, verbos de ação no passado
+simples) quando a vaga pede, e deixa o candidato escolher exatamente quais
+seções entram na versão final antes de baixar — para que cada aplicação
+fique enxuta e relevante para a vaga em questão.
 
 ## 🖼️ Capturas de tela
 
@@ -102,10 +123,11 @@ flowchart TD
     C -- Sim --> D["❓ IA gera perguntas complementares"]
     D --> E["✍️ Usuário responde (ou pula)"]
     C -- Não --> F
-    E --> F["🤖 IA reescreve o currículo\n(método STAR + palavras-chave da vaga)"]
+    E --> F["🤖 IA reescreve o currículo\n(método STAR + palavras-chave da vaga\n+ tradução internacional, se marcada)"]
     F --> G["📊 Cálculo de compatibilidade\nantes x depois"]
-    G --> H["👀 Pré-visualização do currículo adaptado"]
-    H --> I["⬇️ Download: .txt / PDF / Word"]
+    G --> H["☑️ Usuário marca/desmarca seções\n(idiomas, cursos, atividades, projetos)"]
+    H --> I["👀 Pré-visualização do currículo adaptado"]
+    I --> J["⬇️ Download: .txt / PDF / Word"]
 ```
 
 ## 🛠️ Stack
@@ -314,6 +336,14 @@ Não. O projeto roda inteiramente com <code>npm run dev</code>. As rotas de
 <code>api/</code> são servidas localmente por um plugin do próprio Vite
 (<code>dev-server/apiDevPlugin.js</code>), que expõe essas mesmas funções na
 porta do frontend — sem depender de nenhuma ferramenta externa.
+</details>
+
+<details>
+<summary><strong>Consigo escolher quais seções aparecem no currículo final?</strong></summary>
+<br>
+Sim. Na tela de resultado, checkboxes permitem incluir ou remover idiomas,
+cursos/certificados, atividades complementares e projetos antes de copiar ou
+baixar o arquivo — sem precisar editar manualmente depois.
 </details>
 
 ## ©️ Autoria e licença
