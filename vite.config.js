@@ -18,6 +18,7 @@ export default defineConfig(({ mode }) => {
     plugins: [react(), apiDevPlugin()],
     server: {
       port: 5173,
+      host: true,
     },
   };
 });
