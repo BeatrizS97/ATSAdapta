@@ -1,0 +1,12 @@
+node_modules/
+.env
+dist/
+.git/
+docs/
+tests/
+jest.config.cjs
+jest.setup.cjs
+setupTests.js
+babel.config.cjs
+*.log
+.vercel
